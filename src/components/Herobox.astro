@@ -1,0 +1,69 @@
+---
+import Subscribe from "./Subscribe.astro";
+
+
+---
+
+<div class="herobox">
+    <div class="hero-title">
+        <h1>
+            Knowledge Fuels Your <br />
+            <span>Net Worth</span>
+        </h1>
+    </div>
+
+    <div class="hero-section">
+        <p class="hero-subtitle">Want to become a top 1% investor?</p>
+        <p class="hero-second-subtitle inter">
+            Join thousands of readers of Joe's Accredited Insights for tips, strategies, and resources to become a steward of your own capital.
+        </p>
+        <p class="start">Start Here</p>
+        <Subscribe />
+    </div>
+</div>
+
+<style>
+
+    .herobox > div {
+        padding: 0 1rem;
+        text-align: center;
+    }
+
+    .hero-title {
+        margin-bottom: 1.5rem;
+
+        h1{
+            font-size: 4rem;
+
+            line-height: 4.5rem;
+        }
+
+        span {
+            color: #3c1fbf;
+        }
+    }
+
+    .herobox .hero-section {
+        background-color: #F2F4F8;
+        padding: 2rem 1rem;
+
+        .hero-subtitle{
+            color: #212832;
+            font-weight: bold;
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            line-height: 2.25rem;
+        }
+
+        .hero-second-subtitle{
+            font-size: 1.125rem;
+            line-height: 2rem;
+        }
+
+        .start{
+            font-size: 2.25rem;
+            line-height: 3rem;
+            margin-bottom: 1rem;
+        }
+    }
+</style>
