@@ -4,8 +4,8 @@
 
 <div class="subscribe">
     <form>
-        <input type="email" placeholder="Drop email to gain access">
-        <input type="submit" value="Submit">
+        <input type="email" placeholder="Drop email to gain access" required>
+        <button>Subscribe</button>
     </form> 
 </div>
 
@@ -17,4 +17,29 @@
         gap: 1rem;
     }
 
+    form input, button{ 
+        text-align: center;
+        height: 52px;
+        font-size: 1.125rem;
+        border: none;
+        border-radius: 0.25rem;
+    }
+
+    form input{
+        border: 1px solid #DBE2EB;
+    }
+
+    form button{
+        background-color: #3C1FBF;
+        color: #FEFEFE;
+    }
+
+    form input::placeholder{
+        color: #A9B2BF;
+        font-style: italic;
+    }
+
 </style>
+
+<script>
+</script>
