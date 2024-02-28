@@ -1,7 +1,20 @@
 ---
 import Subscribe from "./Subscribe.astro";
 
-
+const navLinks = [
+    {
+        name: "about",
+        url: "#about",
+    },
+    {
+        name: "newsletter",
+        url: "#newsletter",
+    },
+    {
+        name: "articles",
+        url: "#articles",
+    },
+];
 ---
 
 <div class="nav-header">
@@ -35,42 +48,60 @@ import Subscribe from "./Subscribe.astro";
             ></rect>
         </svg>
     </div>
+</div>
 
-    <div class="navigation">
-        <nav>
-            <ul>
-                <li><a href="/newsletter">Newsletter</a></li>
-                <li><a href="/about">About</a></li>
-
-                <Subscribe/>
-            </ul>
-        </nav>
-    </div>
+<div class="navigation">
+    <nav>
+        <ul>
+            {
+                navLinks.map((link) => (
+                    <li class="link-container">
+                        <div class="link">
+                            <a href="${link.url}">{link.name}</a>
+                        </div>
+                    </li>
+                ))
+            }
+        </ul>
+    </nav>
+    <Subscribe />
 </div>
 
 <style>
     .nav-header {
         padding: 1rem;
+        position: relative;
+        border: 1px solid blue;
+        z-index: 10;
+        background-color: #FEFEFE;
     }
 
-    .nav-buttons{
+    .nav-buttons {
         display: flex;
         justify-content: space-between;
     }
 
-    .navigation{
+    .navigation {
+        background-color: #FEFEFE;
+        position: absolute;
+        left: 0;
+        right: 0;
         border: 1px solid red;
-        display: none;
+        padding: 0 1rem;
     }
 
-    li{
-        margin: 0 1rem;
+    ul{
+        margin-bottom: 2rem;
+    }
+
+    li {
         padding: 1rem 0;
-        border-bottom: 1px solid #DBE2EB;
+        border-bottom: 1px solid #dbe2eb;
     }
 
-    li a{
+    li a {
         color: #546071;
         text-decoration: none;
+
     }
 </style>
