@@ -1,0 +1,114 @@
+---
+import Subscribe from "./Subscribe.astro";
+
+const navLinks = [
+    {
+        name: "about",
+        url: "#about",
+    },
+    {
+        name: "newsletter",
+        url: "#newsletter",
+    },
+    {
+        name: "articles",
+        url: "#articles",
+    },
+];
+---
+
+<div class="nav-header">
+    <div class="nav-buttons">
+        <svg
+            width="36"
+            height="24"
+            viewBox="0 0 36 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            <path
+                d="M0 17.0449V15.8694H3.05276V17.0449C3.05276 19.3633 4.306 21.0286 6.87675 21.0286C9.51177 21.0286 10.6686 19.3959 10.6686 16.9469V0H13.8178V17.0776C13.8178 21.3224 11.0221 24 6.87675 24C2.44221 24 0 21.1265 0 17.0449Z"
+                fill="#151A20"></path>
+            <path
+                d="M22.2144 23.6082H19.0652V0H27.8379C32.8187 0 35.7751 2.67755 35.7751 7.08571C35.7751 10.351 34.1683 12.702 31.2763 13.649L36 23.6082H32.4974L28.1592 14.2694H22.2144V23.6082ZM22.2144 2.87347V11.4286H27.87C30.7942 11.4286 32.4652 9.82857 32.4652 7.11837C32.4652 4.37551 30.73 2.87347 27.8379 2.87347H22.2144Z"
+                fill="#151A20"></path>
+        </svg>
+
+        <svg
+            width="32"
+            height="22"
+            viewBox="0 0 32 22"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            <rect class="1-line" width="32" height="2" fill="#2A3340"></rect>
+            <rect class="2-line" y="10" width="32" height="2" fill="#2A3340"
+            ></rect>
+            <rect class="3-line" y="20" width="32" height="2" fill="#2A3340"
+            ></rect>
+        </svg>
+    </div>
+</div>
+
+<div class="navigation">
+    <nav>
+        <ul>
+            {
+                navLinks.map((link) => (
+                    <li class="link-container">
+                        <div class="link">
+                            <a href="${link.url}">{link.name}</a>
+                        </div>
+                    </li>
+                ))
+            }
+        </ul>
+    </nav>
+    <Subscribe />
+</div>
+
+<style>
+    .nav-header {
+        padding: 1rem;
+        position: relative;
+        z-index: 10;
+        background-color: #fefefe;
+        border-bottom: 1px solid #dbe2eb;
+        box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.05);
+    }
+
+    .nav-buttons {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .navigation {
+        background-color: #fefefe;
+        position: absolute;
+        left: 0;
+        right: 0;
+        padding: 0 1rem;
+        padding-bottom: 3rem;
+        display: none;
+    }
+
+    ul {
+        margin-bottom: 2rem;
+    }
+
+    li {
+        padding: 1rem 0;
+        border-bottom: 1px solid #dbe2eb;
+    }
+
+    li a {
+        color: #546071;
+        text-decoration: none;
+    }
+
+    @media only screen and (min-width: 600px) {
+        .nav-header {
+            padding: 2rem;
+        }
+    }
+</style>

@@ -1,69 +1,64 @@
 ---
-import Subscribe from "./Subscribe.astro";
-
-
+import Image from "astro/components/Image.astro";
+import HeroSection from "./HeroSection.astro";
+import joeRobertImage from "../../public/images/Joe-Robert-Photo.png";
 ---
 
 <div class="herobox">
     <div class="hero-title">
         <h1>
-            Knowledge Fuels Your <br />
-            <span>Net Worth</span>
+            Knowledge Fuels Your
+            <span>Net&nbspWorth</span>
         </h1>
+        <Image src={joeRobertImage} alt="Joe Robert." />
     </div>
 
-    <div class="hero-section">
-        <p class="hero-subtitle">Want to become a top 1% investor?</p>
-        <p class="hero-second-subtitle inter">
-            Join thousands of readers of Joe's Accredited Insights for tips, strategies, and resources to become a steward of your own capital.
-        </p>
-        <p class="start">Start Here</p>
-        <Subscribe />
-    </div>
+    <HeroSection />
 </div>
 
 <style>
-
     .herobox > div {
         padding: 0 1rem;
         text-align: center;
     }
 
-    .hero-title {
-        margin-bottom: 1.5rem;
-
-        h1{
-            font-size: 4rem;
-
-            line-height: 4.5rem;
-        }
-
-        span {
-            color: #3c1fbf;
-        }
+    .herobox .hero-title {
+        padding: 1.5rem 1rem;
     }
 
-    .herobox .hero-section {
-        background-color: #F2F4F8;
-        padding: 2rem 1rem;
+    h1 {
+        font-size: 4rem;
+        line-height: 4.5rem;
+    }
 
-        .hero-subtitle{
-            color: #212832;
-            font-weight: bold;
-            font-size: 1.25rem;
-            margin-bottom: 0.5rem;
-            line-height: 2.25rem;
+    span {
+        color: #3c1fbf;
+    }
+
+    .herobox img {
+        display: none;
+    }
+
+    @media only screen and (min-width: 600px) {
+        .herobox > div {
+            padding: 0 2rem;
         }
 
-        .hero-second-subtitle{
-            font-size: 1.125rem;
-            line-height: 2rem;
+        .herobox .hero-title {
+            display: flex;
+            align-items: center;
+            padding-top: 2rem;
+            padding-bottom: 0;
         }
 
-        .start{
-            font-size: 2.25rem;
-            line-height: 3rem;
-            margin-bottom: 1rem;
+        .herobox h1 {
+            text-align: left;
+        }
+
+        .herobox img {
+            max-width: 187px;
+            height: auto;
+            display: block;
         }
     }
 </style>
