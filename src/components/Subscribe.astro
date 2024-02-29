@@ -4,20 +4,20 @@ import { gsap } from "gsap";
 
 <div class="subscribe">
     <form>
-        <input type="email" placeholder="Drop email to gain access" required>
+        <input type="email" placeholder="Drop email to gain access" required />
         <button>Subscribe</button>
-    </form> 
+    </form>
 </div>
 
 <style>
-
-    form{
+    form {
         display: flex;
         flex-direction: column;
         gap: 1rem;
     }
 
-    form input, button{ 
+    form input,
+    button {
         text-align: center;
         height: 52px;
         font-size: 1.125rem;
@@ -25,22 +25,35 @@ import { gsap } from "gsap";
         border-radius: 0.25rem;
     }
 
-    form input{
-        border: 1px solid #DBE2EB;
+    form input {
+        border: 1px solid #dbe2eb;
+        padding-left: 1.5rem;
+        text-align: left;
     }
 
-    form button{
-        background-color: #3C1FBF;
-        color: #FEFEFE;
+    form button {
+        background-color: #3c1fbf;
+        color: #fefefe;
     }
 
-    form input::placeholder{
-        color: #A9B2BF;
+    form input::placeholder {
+        color: #a9b2bf;
         font-style: italic;
     }
 
+    @media only screen and (min-width: 990px) {
+        form {
+            flex-direction: row;
+        }
+
+        form input {
+            width: 100%;
+        }
+
+        form button {
+            padding: 0.75rem 1.5rem;
+        }
+    }
 </style>
 
-<script>
-    
-</script>
+<script></script>

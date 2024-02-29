@@ -3,19 +3,21 @@ import Subscribe from "./Subscribe.astro";
 ---
 
 <div class="hero-section">
-    <div class="hero-left">
-        <p class="hero-subtitle">Want to become a top 1% investor?</p>
-        <p class="hero-second-subtitle inter">
-            Join thousands of readers of Joe's Accredited Insights for tips,
-            strategies, and resources to become a steward of your own capital.
-        </p>
-    </div>
-
-    <div class="vertical-line">&nbsp;</div>
-
-    <div class="hero-right">
-        <p class="start">Start Here</p>
-        <Subscribe />
+    <div class="hero-section-container">
+        <div class="hero-left">
+            <p class="hero-subtitle">Want to become a top 1% investor?</p>
+            <p class="hero-second-subtitle inter">
+                Join thousands of readers of Joe's Accredited Insights for tips,
+                strategies, and resources to become a steward of your own capital.
+            </p>
+        </div>
+    
+        <div class="vertical-line">&nbsp;</div>
+    
+        <div class="hero-right">
+            <p class="start">Start Here</p>
+            <Subscribe />
+        </div>
     </div>
 </div>
 
@@ -24,6 +26,11 @@ import Subscribe from "./Subscribe.astro";
         background-color: #f2f4f8;
         padding: 2rem 1rem;
         text-align: center;
+    }
+
+    .hero-section-container{
+        max-width: 1260px;
+        margin: 0 auto;
     }
 
     .hero-subtitle {
@@ -47,7 +54,7 @@ import Subscribe from "./Subscribe.astro";
     }
 
     @media only screen and (min-width: 600px) {
-        .hero-section {
+        .hero-section-container {
             display: flex;
             gap: 24px;
             padding: 2rem;
@@ -68,5 +75,13 @@ import Subscribe from "./Subscribe.astro";
         .hero-right {
             flex: 1;
         }
+    }
+
+    @media only screen and (min-width: 990px){
+
+        .hero-section-container {
+            gap: 4rem;
+        }
+
     }
 </style>
