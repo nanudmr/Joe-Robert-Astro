@@ -5,7 +5,7 @@ interface Props {
 
 const { title } = Astro.props;
 
-import Nav from "../sections/Nav.astro"
+import Nav from "../sections/Nav.astro";
 ---
 
 <!doctype html>
@@ -15,7 +15,26 @@ import Nav from "../sections/Nav.astro"
 		<meta name="description" content="Astro description" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
 		<title>{title}</title>
+
+		<!-- Google Tag Manager -->
+		<script>
+			(function (w, d, s, l, i) {
+				w[l] = w[l] || [];
+				w[l].push({
+					"gtm.start": new Date().getTime(),
+					event: "gtm.js",
+				});
+				var f = d.getElementsByTagName(s)[0],
+					j = d.createElement(s),
+					dl = l != "dataLayer" ? "&l=" + l : "";
+				j.async = true;
+				j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+				f.parentNode.insertBefore(j, f);
+			})(window, document, "script", "dataLayer", "GTM-KS7P233");
+		</script>
+		<!-- End Google Tag Manager -->
 	</head>
 	<body>
 		<Nav />
@@ -158,6 +177,8 @@ import Nav from "../sections/Nav.astro"
 			rgb(var(--accent-light)) 30%,
 			white 60%
 		);
+
+		--purple: #3c1fbf;
 	}
 	html {
 		font-family: Satoshi, sans-serif;
@@ -167,9 +188,14 @@ import Nav from "../sections/Nav.astro"
 		font-family: inter, sans-serif;
 	}
 
-	input{
+	a,
+	button,
+	input {
 		box-sizing: border-box;
 	}
 </style>
 
-<script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script
+	is:inline
+	src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+></script>

@@ -1,0 +1,170 @@
+---
+import Subscribe from "../components/Subscribe.astro";
+import Socials from "../components/Socials.astro";
+
+---
+
+<div class="more-ways">
+    <div class="more-ways-container">
+        <div class="left">
+            <h2>More Ways to <br /><span>Join the 1%</span></h2>
+        </div>
+
+        <div class="right">
+            <div class="container-box">
+                <span>01</span>
+                <p class="title">
+                    Receive our weekly newsletter directly into your inbox.
+                </p>
+                <p class="description">
+                    Join thousands of readers of Joe's Accredited Insights for
+                    tips, strategies, and resources to become a steward of your
+                    own capital.
+                </p>
+                <Subscribe />
+            </div>
+
+            <hr />
+
+            <div class="container-box">
+                <span>02</span>
+                <p class="title">
+                    Join Robert Ventures fixed-rate bonds waitlist.
+                </p>
+                <p class="description">
+                    At Robert Ventures, we offer you an exceptional opportunity
+                    to experience substantial growth through our exclusive bond
+                    offerings of 10% annually
+                </p>
+                <a class="learn" href="/">Learn More</a>
+            </div>
+
+            <hr />
+
+            <div class="container-box">
+                <span>03</span>
+                <p class="title">
+                    Follow my Social Media Channels, Stay up to date!
+                </p>
+                <p class="description">
+                    Stay informed and connected by following my social media
+                    channels. Join a vibrant community of like-minded investors,
+                    where I share real-time updates.
+                </p>
+
+                <Socials />
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .more-ways{
+        background-color: #F2F4F8;
+    }
+    .more-ways-container {
+        padding: 3rem 1rem;
+        text-align: center;
+        color: #2a3340;
+    }
+
+    h2 {
+        font-size: 3rem;
+        line-height: 3.5rem;
+        color: #151a20;
+    }
+
+    h2 span {
+        color: var(--purple);
+    }
+
+    .container-box {
+        padding: 3rem 0;
+        text-align: left;
+    }
+
+    .container-box span {
+        font-size: 3rem;
+        line-height: 4rem;
+        color: var(--purple);
+        margin-bottom: 1rem;
+        display: inline-block;
+    }
+
+    p.title {
+        font-size: 2rem;
+        line-height: 2.5rem;
+        margin-bottom: 1rem;
+    }
+
+    p.description {
+        font-size: 1.125rem;
+        line-height: 2rem;
+        margin-bottom: 1.5rem;
+    }
+
+    hr {
+        border: 0.5px solid #dbe2eb;
+        margin: 0;
+    }
+
+    a.learn{
+        background-color: var(--purple);
+        color: #FEFEFE;
+        text-decoration: none;
+        padding: 0.75rem 1.25rem;
+        border-radius: 4px;
+        display: inline-block;
+        font-size: 1.125rem;
+        height: 52px;
+        line-height: 1.75rem;
+    }
+
+
+
+    @media only screen and (min-width: 600px){
+        .more-ways-container{
+            padding: 3rem 1rem;
+            max-width: 510px;
+            margin: 0 auto;
+        }
+    }
+
+    @media only screen and (min-width: 900px){
+        .more-ways-container{
+            max-width: 1260px;
+            padding: 8rem 2rem;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .left{
+            flex: 1;
+            text-align: left;
+        }
+
+        h2{
+            font-size: 4rem;
+            line-height: 5rem;
+        }
+
+        .right{
+            flex: 1;
+        }
+
+        p.description{
+            font-size: 1.25rem;
+            line-height: 2.25rem;
+        }
+
+        .container-box:first-child{
+            padding-top: 0;
+        }
+
+        .social-share{
+            justify-content: start;
+            gap: 2rem;
+        }
+    }
+</style>

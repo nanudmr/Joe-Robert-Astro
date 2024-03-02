@@ -1,0 +1,108 @@
+---
+import Subscribe from "../components/Subscribe.astro";
+import Socials from "../components/Socials.astro";
+---
+
+<div class="footer">
+    <div class="footer-container">
+        <h2>
+            Begin your path to financial freedom and <span
+                >take control of your story today.</span
+            >
+        </h2>
+
+        <div class="subscribe">
+            <Subscribe />
+        </div>
+
+        <div class="socials">
+            <Socials />
+        </div>
+
+        <div class="legal-links">
+            <a href="/">Privacy Policy</a>
+            <div class="vertical-line">&nbsp;</div>
+            <a href="/">Terms of Use</a>
+            <div class="vertical-line">&nbsp;</div>
+            <a href="/">Cookie Policy</a>
+        </div>
+
+        <p class="joe">© 2024 by Joe Robert</p>
+    </div>
+</div>
+
+<style>
+    .footer {
+        background-color: #f2f4f8;
+    }
+
+    .footer-container {
+        max-width: 1260px;
+        margin: 0 auto;
+        padding: 4rem 1rem;
+        text-align: center;
+    }
+
+    h2 {
+        font-size: 3rem;
+        line-height: 3.5rem;
+        margin: 0 auto;
+        margin-bottom: 2rem;
+        max-width: 510px;
+    }
+
+    span {
+        color: var(--purple);
+    }
+
+    .subscribe {
+        max-width: 358px;
+        margin: 0 auto;
+    }
+
+    .socials {
+        margin-top: 4rem;
+    }
+
+    .legal-links {
+        display: flex;
+        gap: 16px;
+        justify-content: center;
+        margin: 3rem 0;
+    }
+
+    .legal-links a {
+        text-decoration: none;
+        color: #546071;
+    }
+
+    .vertical-line {
+        width: 1px;
+        background-color: #dbe2eb;
+    }
+
+    @media only screen and (min-width: 600px){
+        .subscribe {
+            max-width: 358px;
+        }
+    }
+
+    @media only screen and (min-width: 900px) {
+        h2 {
+            font-size: 4rem;
+            line-height: 5rem;
+            margin-bottom: 4rem;
+            max-width: 830px;
+        }
+
+        .subscribe {
+            max-width: 506px;
+        }
+
+        .socials{
+            display: flex;
+            justify-content: center;
+        }
+
+    }
+</style>
