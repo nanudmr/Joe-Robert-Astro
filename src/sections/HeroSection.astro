@@ -8,12 +8,13 @@ import Subscribe from "../components/Subscribe.astro";
             <p class="hero-subtitle">Want to become a top 1% investor?</p>
             <p class="hero-second-subtitle inter">
                 Join thousands of readers of Joe's Accredited Insights for tips,
-                strategies, and resources to become a steward of your own capital.
+                strategies, and resources to become a steward of your own
+                capital.
             </p>
         </div>
-    
+
         <div class="vertical-line">&nbsp;</div>
-    
+
         <div class="hero-right">
             <p class="start">Start Here</p>
             <Subscribe />
@@ -28,7 +29,7 @@ import Subscribe from "../components/Subscribe.astro";
         text-align: center;
     }
 
-    .hero-section-container{
+    .hero-section-container {
         max-width: 1260px;
         margin: 0 auto;
     }
@@ -77,11 +78,14 @@ import Subscribe from "../components/Subscribe.astro";
         }
     }
 
-    @media only screen and (min-width: 990px){
-
+    @media only screen and (min-width: 990px) {
         .hero-section-container {
             gap: 4rem;
         }
 
+        .start {
+            font-size: 3rem;
+            line-height: 4rem;
+        }
     }
 </style>
