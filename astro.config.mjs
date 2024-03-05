@@ -3,4 +3,5 @@ import { defineConfig } from 'astro/config';
 // https://astro.build/config
 export default defineConfig({
     site: 'https://nanudmr.github.io',
+    base: '/Joe-Robert-Astro'
 });
