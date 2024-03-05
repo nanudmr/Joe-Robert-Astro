@@ -1,28 +1,45 @@
 ---
+import Image from "astro/components/Image.astro";
+import facebookLogo from "../../public/icons/facebookLogo.svg";
+import instagramLogo from "../../public/icons/instagramLogo.svg";
+import linkedInLogo from "../../public/icons/linkedInLogo.svg";
+import tiktokLogo from "../../public/icons/tiktokLogo.svg";
+import twitterLogo from "../../public/icons/twitterLogo.svg";
+import youtubeLogo from "../../public/icons/youtubeLogo.svg";
 
 ---
 
 <div class="social-share">
-    <a href="/" class="social"><img src="./icons/facebookLogo.svg" alt="Facebook Logo"></a>
-    <a href="/" class="social"><img src="./icons/twitterLogo.svg" alt="Twitter Logo"></a>
-    <a href="/" class="social"><img src="./icons/linkedInLogo.svg" alt="LinkedIn Logo"></a>
-    <a href="/" class="social"><img src="./icons/youtubeLogo.svg" alt="Youtube Logo"></a>
-    <a href="/" class="social"><img src="./icons/instagramLogo.svg" alt="Instagram Logo"></a>
-    <a href="/" class="social"><img src="./icons/tiktokLogo.svg" alt="TikTok Logo"></a>
+    <a href="/" class="social"
+        ><Image src={facebookLogo} alt="Facebook Logo" /></a
+    >
+    <a href="/" class="social"
+        ><Image src={instagramLogo} alt="Instagram Logo" /></a
+    >
+    <a href="/" class="social"
+        ><Image src={linkedInLogo} alt="LinkedIn Logo" /></a
+    >
+    <a href="/" class="social"
+        ><Image src={tiktokLogo} alt="TikTok Logo" /></a
+    >
+    <a href="/" class="social"
+        ><Image src={twitterLogo} alt="Twitter Logo" /></a
+    >
+    <a href="/" class="social"
+        ><Image src={youtubeLogo} alt="Youtube Logo" /></a
+    >
 </div>
 
-
 <style>
-        .social-share{
+    .social-share {
         display: flex;
         gap: 1.5rem;
         align-items: center;
         justify-content: center;
     }
 
-    @media only screen and (min-width: 900px){
-
-        .social-share{
+    @media only screen and (min-width: 900px) {
+        .social-share {
             justify-content: start;
             gap: 2rem;
         }
