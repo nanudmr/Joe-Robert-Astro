@@ -5,6 +5,7 @@ interface Props {
 
 const { title } = Astro.props;
 
+import Herobox from "../sections/Herobox.astro";
 import Nav from "../sections/Nav.astro";
 ---
 
@@ -38,6 +39,7 @@ import Nav from "../sections/Nav.astro";
 	</head>
 	<body>
 		<Nav />
+		<Herobox />
 		<slot />
 	</body>
 </html>
