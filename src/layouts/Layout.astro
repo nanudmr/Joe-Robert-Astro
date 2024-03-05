@@ -4,8 +4,6 @@ interface Props {
 }
 
 const { title } = Astro.props;
-
-import Herobox from "../sections/Herobox.astro";
 import Nav from "../sections/Nav.astro";
 ---
 
@@ -37,9 +35,11 @@ import Nav from "../sections/Nav.astro";
 		</script> -->
 		<!-- End Google Tag Manager -->
 	</head>
-
+	<body>
+		<Nav />
 		<slot />
-
+		
+	</body>
 </html>
 <style is:global>
 	html,
