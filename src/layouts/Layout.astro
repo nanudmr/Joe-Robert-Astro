@@ -13,7 +13,11 @@ import Nav from "../sections/Nav.astro";
 		<meta charset="UTF-8" />
 		<meta name="description" content="Astro description" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/Joe-Robert-Astro/favicon.svg" />
+		<link
+			rel="icon"
+			type="image/svg+xml"
+			href="/Joe-Robert-Astro/favicon.svg"
+		/>
 
 		<title>{title}</title>
 
@@ -38,7 +42,6 @@ import Nav from "../sections/Nav.astro";
 	<body>
 		<Nav />
 		<slot />
-		
 	</body>
 </html>
 <style is:global>
@@ -192,6 +195,12 @@ import Nav from "../sections/Nav.astro";
 	button,
 	input {
 		box-sizing: border-box;
+	}
+
+	div {
+		-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+		-moz-box-sizing: border-box; /* Firefox, other Gecko */
+		box-sizing: border-box; /* Opera/IE 8+ */
 	}
 </style>
 

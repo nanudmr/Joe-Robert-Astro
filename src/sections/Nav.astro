@@ -1,5 +1,7 @@
 ---
 import Subscribe from "../components/Subscribe.astro";
+import joeRobertLogo from "../../public/icons/joeRobertLogo.svg";
+import Image from "astro/components/Image.astro";
 
 const navLinks = [
     {
@@ -17,69 +19,22 @@ const navLinks = [
 ];
 ---
 
-<div class="nav-header">
-    <div class="nav-container">
-        <div class="nav-buttons">
-            <svg
-                width="36"
-                height="24"
-                viewBox="0 0 36 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-            >
-                <path
-                    d="M0 17.0449V15.8694H3.05276V17.0449C3.05276 19.3633 4.306 21.0286 6.87675 21.0286C9.51177 21.0286 10.6686 19.3959 10.6686 16.9469V0H13.8178V17.0776C13.8178 21.3224 11.0221 24 6.87675 24C2.44221 24 0 21.1265 0 17.0449Z"
-                    fill="#151A20"></path>
-                <path
-                    d="M22.2144 23.6082H19.0652V0H27.8379C32.8187 0 35.7751 2.67755 35.7751 7.08571C35.7751 10.351 34.1683 12.702 31.2763 13.649L36 23.6082H32.4974L28.1592 14.2694H22.2144V23.6082ZM22.2144 2.87347V11.4286H27.87C30.7942 11.4286 32.4652 9.82857 32.4652 7.11837C32.4652 4.37551 30.73 2.87347 27.8379 2.87347H22.2144Z"
-                    fill="#151A20"></path>
-            </svg>
-    
-            <svg
-                width="32"
-                height="22"
-                viewBox="0 0 32 22"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-            >
-                <rect class="1-line" width="32" height="2" fill="#2A3340"></rect>
-                <rect class="2-line" y="10" width="32" height="2" fill="#2A3340"
-                ></rect>
-                <rect class="3-line" y="20" width="32" height="2" fill="#2A3340"
-                ></rect>
-            </svg>
-        </div>
-    </div>
-</div>
-
-<div class="navigation">
-    <nav>
-        <ul>
-            {
-                navLinks.map((link) => (
-                    <li class="link-container">
-                        <div class="link">
-                            <a href="${link.url}">{link.name}</a>
-                        </div>
-                    </li>
-                ))
-            }
-        </ul>
-    </nav>
-    <Subscribe />
-</div>
-
 <style>
     .nav-header {
-        padding: 1rem;
-        position: relative;
+        padding: 2rem 1rem;
+        position: fixed;
+        top: 0;
+        width: 100%;
         z-index: 10;
         background-color: #fefefe;
         border-bottom: 1px solid #dbe2eb;
         box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.05);
+
+
+        /* height: 100%; */
     }
 
-    .nav-container{
+    .nav-container {
         max-width: 1260px;
         margin: 0 auto;
     }
@@ -90,27 +45,49 @@ const navLinks = [
     }
 
     .navigation {
-        background-color: #fefefe;
         position: absolute;
         left: 0;
         right: 0;
         padding: 0 1rem;
         padding-bottom: 3rem;
-        /* display: none; */
+
+
+        display: none;
+        opacity: 0;
     }
 
     ul {
-        margin-bottom: 2rem;
+        margin: 2rem 0;
     }
 
     li {
-        padding: 1rem 0;
+        padding: 2rem 0;
         border-bottom: 1px solid #dbe2eb;
     }
 
     li a {
         color: #546071;
         text-decoration: none;
+        font-size: 1.5rem;
+    }
+
+    .menu-subscribe{
+        text-align: center;
+    }
+
+    .hero-second-subtitle {
+        font-size: 1.125rem;
+        line-height: 2rem;
+        font-weight: 300;
+        margin-bottom: 2rem;
+        color: #2A3340;
+    }
+
+    .start {
+        font-size: 2.25rem;
+        line-height: 3rem;
+        margin-bottom: 1rem;
+        color: #151A20;
     }
 
     @media only screen and (min-width: 600px) {
@@ -119,3 +96,84 @@ const navLinks = [
         }
     }
 </style>
+
+<div class="nav-header">
+    <div class="nav-container">
+        <div class="nav-buttons">
+            <Image src={joeRobertLogo} alt="Joe Robert Logo" />
+
+            <svg
+                class="menu-button"
+                width="32"
+                height="22"
+                viewBox="0 0 32 22"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <rect class="1-line" width="32" height="2" fill="#2A3340"
+                ></rect>
+                <rect class="2-line" y="10" width="32" height="2" fill="#2A3340"
+                ></rect>
+                <rect class="3-line" y="20" width="32" height="2" fill="#2A3340"
+                ></rect>
+            </svg>
+        </div>
+
+        <div class="navigation">
+            <nav>
+                <ul>
+                    {
+                        navLinks.map((link) => (
+                            <li class="link-container">
+                                <div class="link">
+                                    <a href="${link.url}">{link.name}</a>
+                                </div>
+                            </li>
+                        ))
+                    }
+                </ul>
+            </nav>
+            <div class="menu-subscribe">
+                <p class="start">Start Here</p>
+
+                <p class="hero-second-subtitle">Join thousands of readers of Joe's Accredited Insights for tips, strategies, and resources to become a steward of your own capital.</p>
+
+                <Subscribe />
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+    const menubutton = document.querySelector(".menu-button");
+    const navHeader = document.querySelector(".nav-header");
+    const navigation = document.querySelector(".navigation")
+    let toggler = 0;
+
+    menubutton.addEventListener("click", function () {
+        if (toggler == 0) {
+            gsap.to(".nav-header", {height:"100%", duration:0.5})
+
+            gsap.to(".navigation", {display:"block",opacity:1, delay:0.5})
+
+
+
+
+            console.log("open");
+            toggler = 1;
+        } else {
+            gsap.to(".navigation", {display:"none",opacity:0, duration:0})
+
+            gsap.to(".nav-header", {height:"auto", duration:0.5})
+
+
+
+
+            console.log("closed");
+            toggler = 0;
+        }
+    });
+</script>
