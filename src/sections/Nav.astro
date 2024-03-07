@@ -39,6 +39,7 @@ const navLinks = [
     .nav-buttons {
         display: flex;
         justify-content: space-between;
+        align-items: center;
     }
 
     .navigation {
@@ -102,11 +103,11 @@ const navLinks = [
     }
 
     .menu-button span {
-            width: 2.2rem;
-            height: 2.1px;
-            background-color: black;
-            display: block;
-        }
+        width: 2.2rem;
+        height: 2.1px;
+        background-color: black;
+        display: block;
+    }
 
     @media only screen and (min-width: 600px) {
         .nav-header {
@@ -118,6 +119,11 @@ const navLinks = [
         .menu-button {
             display: none;
         }
+
+        .joe-robert-logo{
+			height: 32px;
+            width: 48px;
+		}
 
         .nav-buttons {
         }
@@ -147,7 +153,7 @@ const navLinks = [
 <div class="nav-header">
     <div class="nav-container">
         <div class="nav-buttons">
-            <Image src={joeRobertLogo} alt="Joe Robert Logo" />
+            <Image class="joe-robert-logo" src={joeRobertLogo} alt="Joe Robert Logo" />
 
             <!-- <svg
                 class="menu-button"
@@ -224,16 +230,16 @@ const navLinks = [
     const menuOpener = gsap.timeline({ defaults: { duration: 0.15 } });
     menuOpener.pause();
 
-    menuOpener.to(".line1", { x: 0, duration: 0.15 }, 0);
-    menuOpener.to(".line3", { x: 0, duration: 0.15 }, 0);
+    // menuOpener.to(".line1", { x: 0, duration: 0.15 }, 0);
+    // menuOpener.to(".line3", { x: 0, duration: 0.15 }, 0);
 
-    menuOpener.to(".line2", { width: 0, duration: 0.1 }, 0.4);
+    menuOpener.to(".line2", { width: 0, duration: 0.1 }, 0.2);
 
-    menuOpener.to(".line1", { y: 10 }, 0.3);
-    menuOpener.to(".line3", { y: -10 }, 0.3);
+    menuOpener.to(".line1", { y: 10 }, 0);
+    menuOpener.to(".line3", { y: -10 }, 0);
 
-    menuOpener.to(".line1", { rotation: -40 }, 0.6);
-    menuOpener.to(".line3", { rotation: 40 }, 0.6);
+    menuOpener.to(".line1", { rotation: -40 }, 0.3);
+    menuOpener.to(".line3", { rotation: 40 }, 0.3);
 
     menubutton.addEventListener("click", function () {
         if (toggler == 0) {
@@ -282,7 +288,7 @@ const navLinks = [
             gsap.to(".nav-header", { top: 0, duration: 0.3 });
         } else {
             // If scrolling down, hide the menu
-            gsap.to(".nav-header", { top: -96, duration: 0.5 });
+            gsap.to(".nav-header", { top: -100, duration: 0.5 });
         }
 
         prevScrollpos = currentScrollPos;
