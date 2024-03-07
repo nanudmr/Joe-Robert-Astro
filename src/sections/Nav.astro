@@ -29,8 +29,6 @@ const navLinks = [
         background-color: #fefefe;
         border-bottom: 1px solid #dbe2eb;
         box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.05);
-
-        /* height: 100%; */
     }
 
     .nav-container {
@@ -97,6 +95,10 @@ const navLinks = [
         display: none;
     }
 
+    svg rect {
+        /* transform-origin: 20% 20%; */
+    }
+
     @media only screen and (min-width: 600px) {
         .nav-header {
             padding: 2rem;
@@ -146,11 +148,10 @@ const navLinks = [
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
             >
-                <rect class="1-line" width="32" height="2" fill="#2A3340"
+                <rect class="line1" width="32" height="2" fill="#2A3340"></rect>
+                <rect class="line2" y="10" width="32" height="2" fill="#2A3340"
                 ></rect>
-                <rect class="2-line" y="10" width="32" height="2" fill="#2A3340"
-                ></rect>
-                <rect class="3-line" y="20" width="32" height="2" fill="#2A3340"
+                <rect class="line3" y="20" width="32" height="2" fill="#2A3340"
                 ></rect>
             </svg>
 
@@ -203,45 +204,72 @@ const navLinks = [
     const menubutton = document.querySelector(".menu-button");
     let toggler = 0;
 
+    gsap.to(".line1, .line3", { x: -8 });
+
+    const menuOpener = gsap.timeline({ defaults: { duration: 0.15 } });
+    menuOpener.pause();
+
+    menuOpener.to(".line1", { x: 0, duration: 0.15 }, 0);
+    menuOpener.to(".line3", { x: 0, duration: 0.15 }, 0);
+
+    menuOpener.to(".line2", { width: 0, duration: 0.1 }, 0.4);
+
+    menuOpener.to(".line1", { y: 10 }, 0.3);
+    menuOpener.to(".line3", { y: -10 }, 0.3);
+
+    menuOpener.to(".line1", { rotation: -40 }, 0.6);
+    menuOpener.to(".line3", { rotation: 40 }, 0.6);
+
     menubutton.addEventListener("click", function () {
         if (toggler == 0) {
+            toggler = 1;
+            // prevent scroll
             gsap.to("body", { height: "100%", overflow: "hidden" });
 
+            // menu opener
             gsap.to(".nav-header", { height: "100%", duration: 0.5 });
-
             gsap.to(".navigation", {
                 display: "block",
                 opacity: 1,
                 delay: 0.5,
             });
 
-            console.log("open");
-            toggler = 1;
+            menuOpener.play(0);
         } else {
+            toggler = 0;
+            //allow scroll
             gsap.to("body", { height: "auto", overflow: "visible" });
 
+            // menu closer
+            gsap.to(".nav-header", { height: "auto", duration: 0.5 });
             gsap.to(".navigation", {
                 display: "none",
                 opacity: 0,
                 duration: 0,
             });
 
-            gsap.to(".nav-header", { height: "auto", duration: 0.5 });
+            menuOpener.reverse();
 
             console.log("closed");
-            toggler = 0;
         }
     });
 
     /* When the user scrolls down, hide the navbar. When the user scrolls up, show the navbar */
-    var prevScrollpos = window.scrollY;
+    let prevScrollpos = window.scrollY;
     window.onscroll = function () {
         let currentScrollPos = window.scrollY;
-        if (prevScrollpos > currentScrollPos) {
-            gsap.to(".nav-header", {top:0, duration: 0.3})
+
+        // If scrolling up or at the top of the page, keep the menu visible
+        if (currentScrollPos <= 0) {
+            gsap.to(".nav-header", { top: 0, duration: 0.3 });
+        } else if (prevScrollpos > currentScrollPos) {
+            // If scrolling up but not at the very top, make the menu visible
+            gsap.to(".nav-header", { top: 0, duration: 0.3 });
         } else {
-            gsap.to(".nav-header", {top:-96, duration: 0.5})
+            // If scrolling down, hide the menu
+            gsap.to(".nav-header", { top: -96, duration: 0.5 });
         }
+
         prevScrollpos = currentScrollPos;
     };
 </script>
